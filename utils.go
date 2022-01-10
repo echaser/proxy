@@ -45,6 +45,9 @@ func genCertificate() (cert tls.Certificate, err error) {
 
 }
 
+// Generate a self-signed X.509 certificate for a TLS server. Outputs to
+// 'cert.pem' and 'key.pem' and will overwrite existing files.
+// https://go.dev/src/crypto/tls/generate_cert.go
 func generateKeyPair() (cert, key []byte, err error) {
 	priKey, err := rsa.GenerateKey(rand.Reader, 2048)
 	if err != nil {
